@@ -1,33 +1,25 @@
 <template>
-  <div id="app2">
-    <nav>
-      <div>
-        <router-link to="/"> Home </router-link>
-        <router-link to="/login" v-if="!authenticated"> Login </router-link>
-        <router-link to="/profile" v-if="authenticated"> Profile </router-link>
-        <a v-if="authenticated" v-on:click="logout()"> Logout </a>
-      </div>
-    </nav>
-    <div id="content">
-      <router-view />
-    </div>
+  <div id="app">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
   name: "app",
-  data: function () {
-    return { authenticated: false };
+  data() {
+    return {
+      authenticated: false,
+    };
   },
   async created() {
     await this.isAuthenticated();
     this.$auth.authStateManager.subscribe(this.isAuthenticated);
   },
   watch: {
-    // Everytime the route changes, check for auth status
     $route: "isAuthenticated",
   },
+
   methods: {
     async isAuthenticated() {
       this.authenticated = await this.$auth.isAuthenticated();
@@ -40,15 +32,19 @@ export default {
 </script>
 
 <style>
-nav div a {
-  margin-right: 10px;
-}
 #app {
-  width: 800px;
-  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: white;
 }
-a {
-  text-decoration: underline;
-  cursor: pointer;
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100;
+  box-sizing: border-box;
+  height: 100;
+  background-color: #222222;
 }
 </style>

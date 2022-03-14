@@ -1,18 +1,26 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="home">
+    <header class="text-center mb-10 text-3xl font-extrabold">STOCKS</header>
+    <StocksTable />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import StocksTable from "@/components/StocksTable";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    StocksTable,
+  },
+};
 </script>
+
+<style scoped>
+#home {
+  margin: 50px 50px 50px 50px;
+  padding: 0px;
+  width: 100;
+  box-sizing: border-box;
+}
+</style>
