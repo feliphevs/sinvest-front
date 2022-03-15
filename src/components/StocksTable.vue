@@ -2,6 +2,9 @@
   <div>
     <!-- tabela stocks -->
     <table class="w-full divide-y divide-gray-200 text-center">
+      <caption class="text-center mb-10 text-3xl font-extrabold">
+        STOCKS
+      </caption>
       <thead class="bg-gray-800 flex text-white w-full">
         <tr class="flex w-full divide-x">
           <th class="p-5 w-1/4">Stock ID</th>
@@ -47,25 +50,20 @@
     <!-- MODAL DE COMPRA -->
     <div
       v-show="showModal"
-      id="defaultModal"
+      id="modalCompra"
       class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex"
     >
       <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
         <!-- Modal content -->
         <div class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-700">
-          <!-- Modal header -->
-          <div
-            class="flex justify-center items-start p-5 rounded-t border-b dark:border-gray-600"
-          >
-            <h3
-              class="text-xl font-semibold text-black lg:text-2xl dark:text-white"
-            >
-              COMPRA DE STOCK
-            </h3>
-          </div>
           <!-- Modal body -->
           <div class="p-6 space-y-6 text-black">
             <table class="w-full divide-y divide-gray-200 text-center">
+              <caption
+                class="text-xl font-semibold text-black lg:text-2xl dark:text-white mb-5"
+              >
+                COMPRA DE STOCK
+              </caption>
               <thead class="bg-gray-800 flex text-white w-full">
                 <tr class="flex w-full divide-x">
                   <th class="p-5 w-2/4">Stock Symbol</th>
@@ -140,25 +138,20 @@
     <!-- ok box -->
     <div
       v-show="showOkBox"
-      id="defaultModal"
+      id="okModal"
       class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex"
     >
       <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
         <!-- Modal content -->
         <div class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-700">
-          <!-- Modal header -->
-          <div
-            class="flex justify-center items-start p-5 rounded-t border-b dark:border-gray-600"
-          >
-            <h3
-              class="text-xl font-semibold text-black lg:text-2xl dark:text-white"
-            >
-              COMPRA DE STOCK
-            </h3>
-          </div>
           <!-- Modal body -->
           <div class="p-6 space-y-6 text-black">
             <table class="w-full divide-y divide-gray-200 text-center">
+              <caption
+                class="text-xl font-semibold text-black lg:text-2xl dark:text-white mb-5"
+              >
+                COMPRA DE STOCK
+              </caption>
               <thead class="bg-gray-800 flex text-white w-full">
                 <tr class="flex w-full divide-x justify-center">
                   <th class="p-5 w-4/4">ORDEM DE COMPRA Nº {{ orderId }}</th>
@@ -253,7 +246,7 @@ export default {
     return {
       stocks: [],
       showModal: false,
-      showOkBox: false,
+      showOkBox: true,
       stockCompra: null,
       orderId: 0,
       symbol: "",
@@ -340,7 +333,6 @@ export default {
     async getStocks() {
       if (this.$root.authenticated) {
         let accessToken = this.$auth.getAccessToken();
-        console.log(`Authorization: Bearer ${accessToken}`);
         try {
           let response = await this.$axios.get(
             "http://localhost:8082/stocks/",
@@ -348,30 +340,20 @@ export default {
               headers: { Authorization: "Bearer " + accessToken },
             }
           );
-          for (var key in response.data) {
+          let array = response.data;
+          console.log(response.data);
+          array.forEach((stock) => {
             this.stocks.push({
-              id: response.data[key].id,
-              marketCap: response.data[key].marketCap,
-              stockSymbol: response.data[key].stockSymbol,
-              stockName: response.data[key].stockName,
-              askMin:
-                response.data[key].askMin == null
-                  ? "0.00"
-                  : response.data[key].askMin.toFixed(2),
-              askMax:
-                response.data[key].askMax == null
-                  ? "0.00"
-                  : response.data[key].askMax.toFixed(2),
-              bidMin:
-                response.data[key].bidMin == null
-                  ? "0.00"
-                  : response.data[key].bidMin.toFixed(2),
-              bidMax:
-                response.data[key].bidMax == null
-                  ? "0.00"
-                  : response.data[key].bidMax.toFixed(2),
+              id: stock.id,
+              marketCap: stock.marketCap,
+              stockSymbol: stock.stockSymbol,
+              stockName: stock.stockName,
+              askMin: stock.askMin == null ? "0.00" : stock.askMin.toFixed(2),
+              askMax: stock.askMax == null ? "0.00" : stock.askMax.toFixed(2),
+              bidMin: stock.bidMin == null ? "0.00" : stock.bidMin.toFixed(2),
+              bidMax: stock.bidMax == null ? "0.00" : stock.bidMax.toFixed(2),
             });
-          }
+          });
         } catch (error) {
           this.erro = `${error}`;
         }

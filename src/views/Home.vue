@@ -1,6 +1,5 @@
 <template>
   <div id="home">
-    <header class="text-center mb-10 text-3xl font-extrabold">STOCKS</header>
     <StocksTable />
   </div>
 </template>
