@@ -1,15 +1,10 @@
 <template>
   <div id="mystocks">
-    <header class="text-center mb-10 text-3xl font-extrabold">
-      MINHAS STOCKS
-    </header>
     <MyStocksTable />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-//import Table from "@/components/Table";
 import MyStocksTable from "@/components/MyStocksTable";
 
 export default {

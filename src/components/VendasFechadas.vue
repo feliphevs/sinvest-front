@@ -2,20 +2,22 @@
   <!-- component -->
   <div class="container">
     <table class="w-full divide-y divide-gray-200 text-center">
+      <caption class="m-5 font-extrabold">
+        FECHADAS
+      </caption>
       <thead class="bg-gray-800 flex text-white w-full">
         <tr class="flex w-full divide-x font-bold">
-          <th class="p-5 w-1/4">Order ID</th>
-          <th class="p-5 w-1/4">Stock ID</th>
-          <th class="p-5 w-1/4">Stock Symbol</th>
-          <th class="p-5 w-1/4">Stock Name</th>
-          <th class="p-5 w-1/4">Volume</th>
-          <th class="p-5 w-1/4">Volume Vendido</th>
-          <th class="p-5 w-1/4">Preço</th>
-          <th class="p-5 w-1/4">Abertura</th>
-          <td class="p-5 w-1/4">Fechamento</td>
+          <th id="orderId" class="p-5 w-1/4">Order ID</th>
+          <th id="stockId" class="p-5 w-1/4">Stock ID</th>
+          <th id="stockSymbol" class="p-5 w-1/4">Stock Symbol</th>
+          <th id="stockName" class="p-5 w-1/4">Stock Name</th>
+          <th id="volume" class="p-5 w-1/4">Volume</th>
+          <th id="volumeRemaining" class="p-5 w-1/4">Volume Vendido</th>
+          <th id="price" class="p-5 w-1/4">Preço</th>
+          <th id="abertura" class="p-5 w-1/4">Abertura</th>
+          <th id="fechamento" class="p-5 w-1/4">Fechamento</th>
         </tr>
       </thead>
-      <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
       <tbody
         class="bg-gray-600 flex flex-col items-center overflow-y-scroll w-full divide-y divide-gray-200"
         style="height: 25vh"

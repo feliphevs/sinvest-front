@@ -3,7 +3,6 @@ import { LoginCallback, navigationGuard } from "@okta/okta-vue";
 import Dashboard from "@/views/Dashboard";
 
 import LoginComponent from "@/components/Login";
-//import ProfileComponent from "@/components/Profile";
 
 const router = createRouter({
   history: createWebHistory(),

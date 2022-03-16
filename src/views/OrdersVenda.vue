@@ -1,16 +1,12 @@
 <template>
   <div id="home">
-    <header class="text-center mb-10 text-3xl font-extrabold">
+    <header class="text-center mb-5 text-3xl font-extrabold">
       Ordens de Venda
     </header>
-    <div>
-      <p class="m-5 font-extrabold">ABERTAS</p>
-      <VendasAbertas />
-    </div>
-    <div>
-      <p class="m-5 font-extrabold">FECHADAS</p>
-      <VendasFechadas />
-    </div>
+
+    <VendasAbertas />
+
+    <VendasFechadas />
   </div>
 </template>
 

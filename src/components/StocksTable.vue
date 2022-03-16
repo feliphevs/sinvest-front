@@ -246,7 +246,7 @@ export default {
     return {
       stocks: [],
       showModal: false,
-      showOkBox: true,
+      showOkBox: false,
       stockCompra: null,
       orderId: 0,
       symbol: "",
@@ -341,7 +341,6 @@ export default {
             }
           );
           let array = response.data;
-          console.log(response.data);
           array.forEach((stock) => {
             this.stocks.push({
               id: stock.id,

@@ -2,6 +2,9 @@
   <div class="container">
     <!-- tabela minhas stocks -->
     <table class="w-full divide-y divide-gray-200 text-center">
+      <caption class="text-center mb-10 text-3xl font-extrabold">
+        MINHAS STOCKS
+      </caption>
       <thead class="bg-gray-800 flex text-white w-full">
         <tr class="flex w-full divide-x">
           <th class="p-5 w-1/4">Stock ID</th>
@@ -40,25 +43,20 @@
     <!-- MODAL DE VENDA -->
     <div
       v-show="showModal"
-      id="defaultModal"
+      id="modalVenda"
       class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex"
     >
       <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
         <!-- Modal content -->
         <div class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-700">
-          <!-- Modal header -->
-          <div
-            class="flex justify-center items-start p-5 rounded-t border-b dark:border-gray-600"
-          >
-            <h3
-              class="text-xl font-semibold text-black lg:text-2xl dark:text-white"
-            >
-              VENDA DE STOCK
-            </h3>
-          </div>
           <!-- Modal body -->
           <div class="p-6 space-y-6 text-black">
             <table class="w-full divide-y divide-gray-200 text-center">
+              <caption
+                class="text-xl font-semibold text-black lg:text-2xl dark:text-white mb-5"
+              >
+                VENDA DE STOCK
+              </caption>
               <thead class="bg-gray-800 flex text-white w-full">
                 <tr class="flex w-full divide-x">
                   <th class="p-5 w-2/4">Stock Symbol</th>
@@ -133,25 +131,20 @@
     <!-- ok box -->
     <div
       v-show="showOkBox"
-      id="defaultModal"
+      id="okModal"
       class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex"
     >
       <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
         <!-- Modal content -->
         <div class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-700">
-          <!-- Modal header -->
-          <div
-            class="flex justify-center items-start p-5 rounded-t border-b dark:border-gray-600"
-          >
-            <h3
-              class="text-xl font-semibold text-black lg:text-2xl dark:text-white"
-            >
-              VENDA DE STOCK
-            </h3>
-          </div>
           <!-- Modal body -->
           <div class="p-6 space-y-6 text-black">
             <table class="w-full divide-y divide-gray-200 text-center">
+              <caption
+                class="text-xl font-semibold text-black lg:text-2xl dark:text-white mb-5"
+              >
+                VENDA DE STOCK
+              </caption>
               <thead class="bg-gray-800 flex text-white w-full">
                 <tr class="flex w-full divide-x justify-center">
                   <th class="p-5 w-4/4">ORDEM DE VENDA Nº {{ orderId }}</th>

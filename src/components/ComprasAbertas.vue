@@ -2,20 +2,22 @@
   <!-- component -->
   <div class="container">
     <table class="w-full divide-y divide-gray-200 text-center">
+      <caption class="m-5 font-extrabold">
+        ABERTAS
+      </caption>
       <thead class="bg-gray-800 flex text-white w-full">
         <tr class="flex w-full divide-x">
-          <th class="p-5 w-1/4">Order ID</th>
-          <th class="p-5 w-1/4">Stock ID</th>
-          <th class="p-5 w-1/4">Stock Symbol</th>
-          <th class="p-5 w-1/4">Stock Name</th>
-          <th class="p-5 w-1/4">Volume</th>
-          <th class="p-5 w-1/4">Volume Restante</th>
-          <th class="p-5 w-1/4">Preço</th>
-          <th class="p-5 w-1/4">Abertura</th>
-          <td class="p-5 w-1/4"></td>
+          <th id="orderId" class="p-5 w-1/4">Order ID</th>
+          <th id="stockId" class="p-5 w-1/4">Stock ID</th>
+          <th id="stockSymbol" class="p-5 w-1/4">Stock Symbol</th>
+          <th id="stockName" class="p-5 w-1/4">Stock Name</th>
+          <th id="volume" class="p-5 w-1/4">Volume</th>
+          <th id="volumeRemaining" class="p-5 w-1/4">Volume Restante</th>
+          <th id="price" class="p-5 w-1/4">Preço</th>
+          <th id="abertura" class="p-5 w-1/4">Abertura</th>
+          <th class="p-5 w-1/4"></th>
         </tr>
       </thead>
-      <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
       <tbody
         class="bg-gray-600 flex flex-col items-center overflow-y-scroll w-full divide-y divide-gray-200"
         style="height: 25vh"
@@ -48,25 +50,20 @@
     <!-- modal de fechamento -->
     <div
       v-show="showModal"
-      id="defaultModal"
+      id="fechamentoModal"
       class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex"
     >
       <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
         <!-- Modal content -->
         <div class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-700">
-          <!-- Modal header -->
-          <div
-            class="flex justify-center items-start p-5 rounded-t border-b dark:border-gray-600"
-          >
-            <h3
-              class="text-xl font-semibold text-black lg:text-2xl dark:text-white"
-            >
-              FECHAR ORDEM DE COMPRA
-            </h3>
-          </div>
           <!-- Modal body -->
           <div class="p-6 space-y-6 text-black">
             <table class="w-full divide-y divide-gray-200 text-center">
+              <caption
+                class="text-xl font-semibold text-black lg:text-2xl dark:text-white mb-5"
+              >
+                FECHAR ORDEM DE COMPRA
+              </caption>
               <thead class="bg-gray-800 flex text-white w-full">
                 <tr class="flex w-full divide-x justify-center">
                   <th class="p-5 w-4/4">ORDEM DE COMPRA Nº {{ orderId }}</th>
@@ -157,28 +154,23 @@
       </div>
     </div>
 
-    <!-- confirmacao de fechamento de fechamento -->
+    <!-- confirmacao de fechamento -->
     <div
       v-show="showOkBox"
-      id="defaultModal"
+      id="okModal"
       class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex"
     >
       <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
         <!-- Modal content -->
         <div class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-700">
-          <!-- Modal header -->
-          <div
-            class="flex justify-center items-start p-5 rounded-t border-b dark:border-gray-600"
-          >
-            <h3
-              class="text-xl font-semibold text-black lg:text-2xl dark:text-white"
-            >
-              FECHAR ORDEM DE COMPRA
-            </h3>
-          </div>
           <!-- Modal body -->
           <div class="p-6 space-y-6 text-black">
             <table class="w-full divide-y divide-gray-200 text-center">
+              <caption
+                class="text-xl font-semibold text-black lg:text-2xl dark:text-white mb-5"
+              >
+                FECHAR ORDEM DE COMPRA
+              </caption>
               <thead class="bg-gray-800 flex text-white w-full">
                 <tr class="flex w-full divide-x justify-center">
                   <th class="p-5 w-4/4">ORDEM DE COMPRA Nº {{ orderId }}</th>
