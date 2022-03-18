@@ -219,7 +219,11 @@
             class="flex justify-center items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
           >
             <button
-              @click="fechaModal()"
+              @click="
+                fechaModal();
+                limparMyStocks();
+                getMyStocks();
+              "
               type="button"
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
@@ -324,6 +328,10 @@ export default {
           this.erro = `${error}`;
         }
       }
+    },
+
+    limparMyStocks() {
+      this.userstocks = [];
     },
 
     fechaModal() {
