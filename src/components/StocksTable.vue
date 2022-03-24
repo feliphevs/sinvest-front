@@ -343,12 +343,9 @@ export default {
         let accessToken = this.$auth.getAccessToken();
         console.log(accessToken);
         try {
-          let response = await this.$axios.get(
-            "http://localhost:8082/stocks/",
-            {
-              headers: { Authorization: "Bearer " + accessToken },
-            }
-          );
+          let response = await this.$axios.get("http://localhost:8082/stocks", {
+            headers: { Authorization: "Bearer " + accessToken },
+          });
           let array = response.data;
           array.forEach((stock) => {
             this.stocks.push({
